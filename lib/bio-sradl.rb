@@ -143,13 +143,13 @@ class Sradl < Thor
 #TODO:delete    puts paths
     paths.each_pair do |path, sra_files|
       sra_files.each do |sra_file_name|
-#TODO:delete        puts sra_file_name
+#TODO:delete        
+puts sra_file_name
         if (sra_file_name=~/sra/)
           urls << sra.complete_path(path,sra_file_name)
         else
           (sra.ftp.list path+"/"+sra_file_name).each do |down|
-            down = down.split.last if down=~/sra/
-            sra_files << sra_file_name + "/" + down
+            sra_files << sra_file_name + "/" + down.split.last
           end
         end
         #system "wget -O #{sra_file_name} \"#{sra.complete_path(path,sra_file_name)}\"&"
