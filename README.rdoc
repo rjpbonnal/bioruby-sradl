@@ -1,6 +1,35 @@
 = bio-sradl
 
-Description goes here.
+SRA is an archive of NGS data provided by NIH.
+Is possible to download the data from a browser or using a traditional ftp program.
+This package is a convenient way to download or explore the archive without knowing anything about ftp connection.
+Is possible to download single read archive or a bunch of them or download all the reads from an Experiment, a Study, a Sample or a Run.
+
+== HowToUse
+
+an example of SRA directory:
+/sra/sra-instant/reads/ByRun/litesra/SRR/SRR027/SRR027883
+
+biosradl list 
+list the content of the root archive (/sra/sra-instant/reads)
+
+biosradl list ByExp|ByStudy|ByRun|BySample
+list the sub directories of these macro groups (/sra/sra-instant/reads/ByRun)
+
+biosradl list ByRun:027
+list the content of (/sra/sra-instant/reads/BuRun/litesra/SRR/SRR027), that means list all the runs of 
+
+Download works in a similar way. The user can provide the single name of a run
+
+biosradl download SRR027883
+it will create a file named SRR027883.lite.sra in the current directory
+
+or activate a parallel download of all the SRAs in the specified tree:
+biosradl download ByRun:027
+
+is possible to download different sets in one shot:
+biosradl ByRun:027,ByExp:001 
+
 
 == Contributing to bio-sradl
  
