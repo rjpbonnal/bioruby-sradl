@@ -124,10 +124,12 @@ class Sradl < Thor
 
   map "-L" => :list
   map "-D" => :download
-
+  
   desc "list [SEARCH]", "list all available archives, limited by SEARCH"
+  method_option :lite, :type=>:boolean, :default=>true, :aliases=>'-l', :desc =>"use lite archives or the normal. Default is to use lite format."
   def list(search="")
     sra = Sra.new
+    sra.lite=options["lite"]
     sra.login
     sra.list(search).each do |result|
       puts result
@@ -135,8 +137,10 @@ class Sradl < Thor
   end
   
   desc "download [RUNs]", "list all available archives, limited by RUNs. It's a recursive procedure."
+  method_option :lite=>true, :aliases=>'-l', :desc =>"use lite archives or the normal. Default is to use lite format."
   def download(search="")
     sra = Sra.new
+    sra.lite=options["lite"]
     sra.login
     urls=[]
     paths=sra.paths(search)

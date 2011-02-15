@@ -31,6 +31,13 @@ is possible to download different sets in one shot:
 biosradl ByRun:027,ByExp:001 
 
 
+By default the archives are searched in the lite form. To look for regular archive, it's a bit tricky:
+biosradl list SRR:066998 --lite=false or
+biosradl list SRR:066998 -l false
+
+Note: for developers take a look to the declaration of the above option, you can refer to it from your method using the hash "options"
+
+
 == Contributing to bio-sradl
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
