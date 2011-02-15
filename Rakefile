@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "bio-sradl"
   gem.homepage = "http://github.com/helios/bioruby-sradl"
   gem.license = "MIT"
-  gem.summary = %Q{Thor app}
-  gem.description = %Q{Thos app sra}
+  gem.summary = %Q{Explore or download the he Sequence Read Archive (SRA)}
+  gem.description = %Q{sradl is a convenient way to download or explore he Sequence Read Archive (SRA) without knowing anything about ftp connection.}
   gem.email = "ilpuccio.febo@gmail.com"
   gem.authors = ["Raoul J.P. Bonnal"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
